@@ -32,8 +32,13 @@ writer.open()
 #measure data loading time
 
 start = time.time()
+
+# set smallSet to 'True' to improve launch time when debugging. this reduces the datasize by a factor of 10
+# for reasonable results, make sure it is set to 'False'
+
 training_data, validation_data, test_data,\
-training_names, validation_names, test_names = trafficSigns_loader.load_data_from_images(smallSet=True)
+training_names, validation_names, test_names = trafficSigns_loader.load_data_from_images(smallSet=False)
+
 
 print "data loaded in time [s]: {0}".format(time.time() - start)
 
